@@ -15,5 +15,8 @@ html{
 
 .fondoCard{
     background-image: radial-gradient( circle farthest-corner at 2.9% 7.7%,  rgba(164,14,176,1) 0%, rgba(254,101,101,1) 90% );
+}
 
+.fondoCardEducacion{
+    background-image: linear-gradient( 180deg,  rgba(21,13,107,1) 1.1%, rgba(188,16,80,1) 130.5% );
 }
