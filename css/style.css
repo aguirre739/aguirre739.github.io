@@ -20,3 +20,15 @@ html{
 .fondoCardEducacion{
     background-image: linear-gradient( 180deg,  rgba(21,13,107,1) 1.1%, rgba(188,16,80,1) 130.5% );
 }
+
+.linkin{
+    color: #0077b5;
+}
+
+.linkface{
+    color: #4267b2;
+}
+
+.linkwhat{
+    color: #4FCE5D;
+}
