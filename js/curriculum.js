@@ -50,7 +50,7 @@ function validarGeneral(event) {
         validarTelefono(document.getElementById('telefono')) &&
         validarConsulta(document.getElementById('consulta'))) {
         enviarMail();
-        console.log("dentro de validar general")
+        // console.log("dentro de validar general")
     } else {
         alert("ocurrio un error");
     }
@@ -64,5 +64,18 @@ function enviarMail() {
 
     let service_id = "default_service";
     let template_id = "curriculum";
-    emailjs.send(service_id, template_id, template_params);
+    emailjs.send(service_id, template_id, template_params).then(function (response) {
+        console.log(response);
+        document.getElementById("msjEnvio").className = 'alert alert-info my-4';
+        document.getElementById("msjEnvio").innerText = 'Su consulta fue enviada correctamente.';
+
+        document.getElementById("formConsulta").reset();
+        // window.location.reload();
+    }, function (error) {
+        //se ejecuta cuando falla el envio
+        console.log(error);
+        document.getElementById("msjEnvio").className = 'alert alert-danger my-4';
+        document.getElementById("msjEnvio").innerText = 'Ocurrió un error. Intentelo nuevamente mas tarde';
+    }
+    )
 }
