@@ -10,6 +10,12 @@
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/34fc8d25de.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("user_eJQPTvT7CW5IFjRIRpdoL");
+        })();
+    </script>
 </head>
 
 <body>
@@ -328,31 +334,52 @@
         <h2 class="display-4 text-center my-4" id="contacto">Contacto</h2>
         <div class="row pb-4">
             <div class="col-sm-12 col-md-6">
-                <form class="bg-light p-4">
+                <form class="bg-light p-4" onsubmit="validarGeneral(event)" id="formConsulta">
                     <div class="form-group">
                         <label>Apellido y Nombre</label>
-                        <input type="text" class="form-control" placeholder="Juan Perez" required>
+                        <input type="text" class="form-control" placeholder="Juan Perez" id="nombre"
+                            onblur="validarNombre(this)">
+                        <div class="invalid-feedback">
+                            Ingrese un nombre
+                        </div>
                     </div>
                     <div class="form-group">
                         <label>Correo Electronico</label>
-                        <input type="email" class="form-control" placeholder="ejemplo@gmail.com">
+                        <input type="text" class="form-control" placeholder="ejemplo@gmail.com" id="mail"
+                            onblur="validarMail(this)">
+                        <div class="invalid-feedback">
+                            Ingrese un correo electronico
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Telefono</label>
+                        <input type="text" class="form-control" placeholder="3813343456" id="telefono" onblur="validarTelefono(this)">
+                        <div>
+                            Ingrese solo numeros
+                        </div>
                     </div>
                     <div class="form-group">
                         <label>Consulta</label>
-                        <textarea class="form-control" placeholder="Deje su mensaje..." rows="3"></textarea>
+                        <textarea class="form-control" placeholder="Deje su consulta..." rows="3" id="consulta"
+                            onblur="validarConsulta(this)"></textarea>
+                        <div class="invalid-feedback">
+                            Por favor ingrese una consulta valida (al menos 10 caracteres)
+                        </div>
                     </div>
-                    <button class="btn btn-primary">Enviar</button>
+                    <button class="btn btn-primary" type="submit">Enviar</button>
                 </form>
             </div>
             <div class="col-sm-12 col-md-6 text-center">
-                <img src="img/avatar2.PNG" class="avatar" alt="">
-                <p>Puedes contactarme directo por mis redes sociales</p>
-                <a href="https://wa.me/543816676579?text=Me%20quiero%20poner%20en%20contacto%20con%20usted"
-                    target="_blank"><i class="fab fa-whatsapp-square fa-3x mr-2 linkwhat"></i></a>
-                <a href="https://m.me/exit3" target="_blank"><i
-                        class="fab fa-facebook-square fa-3x mr-2 linkface"></i></a>
-                <a href="https://www.linkedin.com/in/pamela-aguirre-b69522158/" target="_blank"><i
-                        class="fab fa-linkedin fa-3x mr-2 linkin"></i></a>
+                <div class="container">
+                    <img src="img/avatar2.PNG" class="avatar" alt="">
+                    <p>Puedes contactarme directo por mis redes sociales</p>
+                    <a href="https://wa.me/543816676579?text=Me%20quiero%20poner%20en%20contacto%20con%20usted"
+                        target="_blank"><i class="fab fa-whatsapp-square fa-3x mr-2 linkwhat"></i></a>
+                    <!-- <a href="https://m.me/exit3" target="_blank"><i
+                        class="fab fa-facebook-square fa-3x mr-2 linkface"></i></a> -->
+                    <a href="https://www.linkedin.com/in/pamela-aguirre-b69522158/" target="_blank"><i
+                            class="fab fa-linkedin fa-3x mr-2 linkin"></i></a>
+                </div>
             </div>
         </div>
     </section>
@@ -376,6 +403,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
+    <script src="js/curriculum.js"></script>
 </body>
 
 </html>
